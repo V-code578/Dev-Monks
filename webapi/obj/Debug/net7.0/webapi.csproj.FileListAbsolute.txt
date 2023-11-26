@@ -1,0 +1,150 @@
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\appsettings.Development.json
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\appsettings.json
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\webapi.exe
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\webapi.deps.json
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\webapi.runtimeconfig.json
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\webapi.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\webapi.pdb
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Azure.Core.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Azure.Identity.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.Identity.Client.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Drawing.Common.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Memory.Data.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Runtime.Caching.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Security.Permissions.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Windows.Extensions.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\FHSquareLibrary.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\FHSquareLibrary.pdb
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.csproj.AssemblyReference.cache
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.GeneratedMSBuildEditorConfig.editorconfig
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.AssemblyInfoInputs.cache
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.AssemblyInfo.cs
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.csproj.CoreCompileInputs.cache
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.MvcApplicationPartsAssemblyInfo.cs
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.MvcApplicationPartsAssemblyInfo.cache
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets\msbuild.webapi.Microsoft.AspNetCore.StaticWebAssets.props
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets\msbuild.build.webapi.props
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.webapi.props
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.webapi.props
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets.pack.json
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets.build.json
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets.development.json
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\scopedcss\bundle\webapi.styles.css
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.csproj.CopyComplete
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\refint\webapi.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.pdb
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.genruntimeconfig.cache
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\obj\Debug\net7.0\ref\webapi.dll
+C:\SLK Capstone Project\FHSquareCapstone\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\appsettings.json
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\webapi.exe
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\webapi.deps.json
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\webapi.runtimeconfig.json
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\webapi.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\webapi.pdb
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Azure.Core.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Azure.Identity.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.Identity.Client.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Drawing.Common.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Memory.Data.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Runtime.Caching.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Security.Permissions.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\System.Windows.Extensions.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\FHSquareLibrary.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\bin\Debug\net7.0\FHSquareLibrary.pdb
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.csproj.AssemblyReference.cache
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.AssemblyInfoInputs.cache
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.AssemblyInfo.cs
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.csproj.CoreCompileInputs.cache
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets\msbuild.webapi.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets\msbuild.build.webapi.props
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.webapi.props
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.webapi.props
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\scopedcss\bundle\webapi.styles.css
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.csproj.CopyComplete
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\refint\webapi.dll
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.pdb
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\webapi.genruntimeconfig.cache
+C:\Users\vishwanath.r\OneDrive - SLK Software Pvt Ltd\Desktop\DotNet_Rao\FH\FHSquareFullStack\webapi\obj\Debug\net7.0\ref\webapi.dll
