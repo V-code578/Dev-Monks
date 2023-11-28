@@ -1,0 +1,44 @@
+    const addToWishlist = async (product) => {
+        if (isUserLoggedIn()) {
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            const wishlistItem = {
+
+                userName: user.userName,
+                productId: product.productId,
+            };
+
+            try {
+                console.log('Adding to wishlist:', wishlistItem);
+
+                await fetch('https://localhost:7186/api/Wishlist/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(wishlistItem),
+                });
+
+                console.log('Product added to wishlist');
+                setWishlist({ userName: '', productId: 0});
+                console.log('Navigating to /WishList');
+                navigate('/WishList');
+
+                // You can display a success message to the user if needed
+            } catch (error) {
+                console.error('Error adding item to the wishlist:', error.message);
+                // You can display an error message to the user if needed
+            }
+        } else {
+            redirectToLogin();
+            console.log('User not logged in. Cannot add to wishlist.');
+            return;
+        }
+    };
+
+    return (
+        <div>
+            <ProductList products={products}  addToWishlist={addToWishlist} addToCart={addToCart}/>
+        </div>
+    );
+};
