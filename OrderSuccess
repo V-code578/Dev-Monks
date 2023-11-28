@@ -1,0 +1,58 @@
+import React, { useEffect, useState } from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+
+const OrderSuccess = () => {
+    const [orderSummary, setOrderSummary] = useState([]);
+
+    useEffect(() => {
+        // Fetch order details from the backend API
+        fetchOrderSummary('your_username');
+    }, []);
+
+    const fetchOrderSummary = async (userName) => {
+        try {
+            const response = await fetch(`https://localhost:7186/api/Order/GetByName/${userName}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch order summary');
+            }
+            const orders = await response.json();
+            setOrderSummary(orders);
+        } catch (error) {
+            console.error('Error fetching order summary:', error.message);
+        }
+    };
+
+    return (
+        <Container>
+            <Row className="justify-content-center">
+                <Col xs={12} sm={8} md={6} lg={4}>
+                    <Card bg="dark" text="white" className="text-center">
+                        <Card.Body>
+                            <Card.Title style={{ fontSize: '2rem', fontFamily: 'Arial' }}>
+                                Ordered Successful
+                            </Card.Title>
+                            {orderSummary.length > 0 && (
+                                <div>
+                                    <h4>Order Summary:</h4>
+                                    <ul>
+                                        {orderSummary.map((order) => (
+                                            <li key={order.orderId}>
+                                                Order ID: {order.orderId}<br />
+                                                Date: {order.orderDate}<br />
+                                                Order Address: {order.orderAddress}<br />
+                                                Total Amount: {order.totalAmount}<br />
+                                                Order Status: {order.orderStatus}<br />
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
+    );
+};
+
+export default OrderSuccess;
