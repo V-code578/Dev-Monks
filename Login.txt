@@ -1,95 +1,13 @@
-EFUserRepo.cs
-using Microsoft.EntityFrameworkCore;
-using OnlineShopping.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace OnlineShopping.Repos
-{
-    public class EFUserRepo : IUserRepo
-    {
-        private readonly OnlineShoppingDbContext _ctx;
-
-        public EFUserRepo(OnlineShoppingDbContext ctx)
-        {
-            _ctx = ctx;
-        }
-
-        public async Task<User> Login(string username, string password)
-        {
-            try
-            {
-                User loggedInUser = await _ctx.Users.FirstOrDefaultAsync(u => u.UserName == username && u.Password == password);
-                return loggedInUser;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-    }
-}
-UserController.cs:
-using Microsoft.AspNetCore.Mvc;
-using OnlineShopping.Models;
-using OnlineShopping.Repos;
-using System;
-using System.Threading.Tasks;
-
-namespace webapi.Controllers
-{
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UserController : ControllerBase
-    {
-        private readonly IUserRepo _userRepo;
-
-        public UserController(IUserRepo repo)
-        {
-            _userRepo = repo;
-        }
-
-        [HttpPost("Login")]
-        public async Task<ActionResult> Login(User user)
-        {
-            try
-            {
-                User loggedInUser = await _userRepo.Login(user.UserName, user.Password);
-                if (loggedInUser != null)
-                {
-                    if (loggedInUser.UserName == "admin")
-                    {
-                        // Login as admin
-                        return Ok("Logged in as admin");
-                    }
-                    else
-                    {
-                        // Login as normal user
-                        return Ok("Logged in as a normal user");
-                    }
-                }
-                else
-                {
-                    return Unauthorized("Invalid credentials");
-                }
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
-        }
-    }
-}
-LoginPage.jsx:
+LoginPage.JSX:
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 
 const LoginPage = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+    const navigate = useNavigate(); // Initialize useNavigate hook
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -107,8 +25,14 @@ const LoginPage = () => {
                 throw new Error("Invalid credentials");
             }
 
-            const data = await response.text();
-            setMessage(data);
+            const data = await response.json(); // Parse the response as JSON
+            setMessage(data.message);
+
+            // Set the isAdmin value in session storage
+            sessionStorage.setItem("isAdmin", data.isAdmin);
+
+            // Navigate to the home page
+            navigate("/");
         } catch (error) {
             setMessage(error.message);
         }
@@ -155,4 +79,232 @@ const LoginPage = () => {
 export default LoginPage;
 
 
+NavbarBefore.JSX:
 
+import React from 'react';
+import Logo from './Assets/LogoPng.jpg';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import './NavbarBefore.css';
+
+// Add the Bootstrap CSS link directly in the file
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+function NavbarBefore() {
+    return (
+        <>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <div className="container">
+                    <a className="navbar-brand" href="#State"><img src={Logo} className="logo" alt="..." /></a>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link to="/" className="nav-link">Home</Link>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#categories">Categories</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#about">About Us</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#footer">Contact Us</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/login">Login</a>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/register" className="nav-link">Register</Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </>
+    );
+}
+
+export default NavbarBefore;
+
+NavbarAfterAdmin.JSX:
+
+import React from "react";
+import Logo from "./Assets/LogoPng.jpg";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import AdminUser from "./AUser";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+//This Navbar will Appear once the Admin Login's IN to the Webapp.
+
+function NavbarAfterAdmin(props) {
+    const userName = props.userName;
+    return (
+        <>
+            <nav id="navbar-example2" className="navbar navbar-light bg-light">
+                <a className="navbar-brand" href="#State">
+                    <img src={Logo} className="logo" alt="..." />
+                </a>
+                <ul className="nav nav-pills">
+                    <li>
+                        <Link to="/" className="nav-link">
+                            Home
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="#categories">
+                            Categories
+                        </a>
+                    </li>
+                    <li>
+                        <Link to="/product" className="nav-link">
+                            Products
+                        </Link>
+                    </li>
+
+                    <li className="nav-item dropdown">
+                        <a
+                            className="nav-link dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            Operations
+                        </a>
+                        <ul className="dropdown-menu">
+                            <li>
+                                <Link to="/AUser" className="nav-link">
+                                    Users
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/ACategories" className="nav-link">
+                                    Categories
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/aproducts" className="nav-link">
+                                    Products
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/acoupons" className="nav-link">
+                                    Coupons
+                                </Link>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a className="nav-link" href="#">
+                            Hello Admin!
+                        </a>
+                    </li>
+
+                    <li className="nav-item">
+                        <a
+                            className="nav-link"
+                            href="/"
+                            onClick={() => props.setLoggedIn(false)}
+                        >
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </>
+    );
+}
+
+export default NavbarAfterAdmin;
+
+NavbarAfter.JSX:
+import React from 'react';
+import Logo from './Assets/LogoPng.jpg';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
+
+//After the User Login This Navbar is Rendered.
+
+function NavbarAfter(props) {
+    const userName = props.userName;
+    console.log(props.username);
+    return (
+
+        <>
+
+            <nav id="navbar-example2" className="navbar navbar bg-light">
+                <a className="navbar-brand" href="#State"><img src={Logo} className="logo" alt="..." /></a>
+                <ul className="nav nav-pills">
+                    <li>
+                        <Link to="/" className="nav-link">Home</Link>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="#categories">Categories</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="#footer">About Us</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="#footer"></a>
+                    </li>
+                    <li>
+                        <a className="nav-link" href="#">Hello User!</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/home" onClick={() => props.setLoggedIn(false)}>Logout</a>
+                    </li>
+                    <li>
+                        <Link to="/product" className="nav-link">Products</Link>
+                    </li>
+                </ul>
+            </nav>
+        </>
+    );
+}
+
+export default NavbarAfter;
+
+App.JSX:
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import RegisterPage from "./RegisterPage";
+import LoginPage from "./LoginPage";
+import ForgotPasswordPage from "./ForgotPasswordPage";
+import Home from "./Home";
+import Navbar from "./NavbarAfter";
+import NavbarAfterAdmin from "./NavbarAfterAdmin";
+import NavbarAfter from "./NavbarBefore";
+
+const App = () => {
+    const isLoggedIn = true; // Set to true if user is logged in
+    const isAdmin = sessionStorage.getItem("isAdmin") === "true"; // Check if the user is an admin based on the value stored in session storage
+
+    let navbarComponent;
+
+    if (isLoggedIn && isAdmin) {
+        navbarComponent = <NavbarAfterAdmin isLoggedIn={isLoggedIn} />;
+    } else if (isLoggedIn) {
+        navbarComponent = <NavbarAfter isLoggedIn={isLoggedIn} />;
+    } else {
+        navbarComponent = <NavbarBefore isLoggedIn={isLoggedIn} />;
+    }
+
+    return (
+        <Router>
+            {navbarComponent}
+            <Routes>
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+                <Route path="/" element={<Home />} /> {/* Set the Home page as the landing page */}
+            </Routes>
+        </Router>
+    );
+};
+
+export default App;
+
+When i logged-in as admin, It doesn't quickly navigate to HomePage and doesn't display quickly NavbarAfter.JSX page, Then after logged-in, When i click on Logout link, i am unable to logout. Please debug the errors and resolve and Provide all the files with Correct implemented functions and full code.
