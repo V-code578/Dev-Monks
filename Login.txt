@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import axios from "axios";
 
 const LoginPage = () => {
-    // State variables to store the username and password
+    // State variables to store the username, password, and error message
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -14,16 +13,26 @@ const LoginPage = () => {
 
         try {
             // Send the user object to the web API
-            const response = await axios.post("http://localhost:5183/api/user/Login", {
-                UserName: username,
-                Password: password
+            const response = await fetch("http://localhost:5183/api/user/Login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    UserName: username,
+                    Password: password
+                }),
             });
+
+            if (!response.ok) {
+                throw new Error("Invalid credentials");
+            }
 
             // If the login is successful, redirect to the home page
             window.location.href = "/";
         } catch (error) {
             // If the login fails, display an error message
-            setError("Invalid credentials");
+            setError(error.message);
         }
     };
 
