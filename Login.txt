@@ -1,3 +1,321 @@
+User.cs:
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OnlineShopping.Models
+{
+    [Table("User")]
+    public class User
+    {
+        
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }    
+        [Key]
+        [Required]
+        [StringLength(30)]
+        public string UserName { get; set; }
+
+        [Required]
+        [StringLength(40)]
+        public string Email { get; set; }
+        [Required]
+        [StringLength(15)]
+        public string Password { get; set; }
+
+        public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<WishList> WishLists { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
+
+        public User()
+        {
+            Carts = new HashSet<Cart>();
+            WishLists = new HashSet<WishList>();
+            Orders = new HashSet<Order>();
+        }
+
+    }
+}
+
+EFUserRepo.cs:
+using Microsoft.EntityFrameworkCore;
+using OnlineShopping.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OnlineShopping.Repos
+{
+    public class EFUserRepo : IUserRepo
+    {
+        private readonly OnlineShoppingDbContext _ctx;
+
+        public EFUserRepo(OnlineShoppingDbContext ctx)
+        {
+            _ctx = ctx;
+        }
+
+        public async Task DeleteUser(int id)
+        {
+            try
+            {
+                User user = await GetUserById(id);
+                _ctx.Users.Remove(user);
+                await _ctx.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task ForgotPassword(User user, string newPassword)
+        {
+            try
+            {
+                User existingUser = await GetUserById(user.Id);
+                if (existingUser != null)
+                {
+                    // Update the password for the user
+                    existingUser.Password = newPassword;
+                    await _ctx.SaveChangesAsync();
+                }
+                else
+                {
+                    throw new Exception("User not found");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<List<User>> GetAllUsers()
+        {
+            try
+            {
+                List<User> users = await _ctx.Users.ToListAsync();
+                return users;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<User> GetUserById(int id)
+        {
+            try
+            {
+                User user = await _ctx.Users.FirstOrDefaultAsync(u => u.Id == id);
+                return user;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<User> GetUserByUsername(string username)
+        {
+            try
+            {
+                User user = await _ctx.Users.FirstOrDefaultAsync(u => u.UserName == username);
+                return user;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<User> Login(string username, string password)
+        {
+            try
+            {
+                User loggedInUser = await _ctx.Users.FirstOrDefaultAsync(u => u.UserName == username && u.Password == password);
+                return loggedInUser;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task Logout(User user)
+        {
+            // Implement logout logic here
+            throw new NotImplementedException();
+        }
+
+        public async Task Register(User user)
+        {
+            try
+            {
+                _ctx.Users.Add(user);
+                await _ctx.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+    }
+}
+UserController.cs:
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using OnlineShopping.Models;
+using OnlineShopping.Repos;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace webapi.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UserController : ControllerBase
+    {
+        private readonly IUserRepo _userRepo;
+
+        public UserController(IUserRepo repo)
+        {
+            _userRepo = repo;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            List<User> users = await _userRepo.GetAllUsers();
+            return Ok(users);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetOne(int id)
+        {
+            try
+            {
+                User user = await _userRepo.GetUserById(id);
+                if (user != null)
+                {
+                    return Ok(user);
+                }
+                else
+                {
+                    return NotFound("User not found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("GetUserByName/{username}")]
+        public async Task<ActionResult> GetOneUser(string username)
+        {
+            try
+            {
+                User user = await _userRepo.GetUserByUsername(username);
+                if (user != null)
+                {
+                    return Ok(user);
+                }
+                else
+                {
+                    return NotFound("User not found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpPost("AddUser")]
+        public async Task<ActionResult> AddUser(User user)
+        {
+            try
+            {
+                await _userRepo.Register(user);
+                return Ok("User added successfully");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteUser(int id)
+        {
+            try
+            {
+                await _userRepo.DeleteUser(id);
+                return Ok("User deleted successfully");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpPost("Login")]
+        public async Task<ActionResult> Login(User user)
+        {
+            try
+            {
+                User loggedInUser = await _userRepo.Login(user.UserName, user.Password);
+                if (loggedInUser != null)
+                {
+                    if (loggedInUser.Id == 1)
+                    {
+                        // Login as admin
+                        return Ok("Logged in as admin");
+                    }
+                    else
+                    {
+                        // Login as normal user
+                        return Ok("Logged in as a normal user");
+                    }
+                }
+                else
+                {
+                    return Unauthorized("Invalid credentials");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpPost("ForgotPassword")]
+        public async Task<ActionResult> ForgotPassword(User user, string newPassword)
+        {
+            try
+            {
+                await _userRepo.ForgotPassword(user, newPassword);
+                return Ok("Password reset successfully");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+    }
+}
+
+LoginPage.JSX:
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import axios from "axios";
@@ -8,31 +326,26 @@ const LoginPage = () => {
     const [password, setPassword] = useState("");
 
     // Function to handle the form submission
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         // Create a user object with the username and password
         const user = {
-            UserName: username,
-            Password: password,
+            username,
+            password,
         };
 
-        try {
-            // Send the user object to the web API
-            const response = await axios.post("http://localhost:5183/api/user/login", user);
-
-            // If the login is successful, redirect to the home page
-            if (response.status === 200) {
+        // Send the user object to the web API
+        axios
+            .post("http://localhost:5183/api/user/login", user)
+            .then((response) => {
+                // If the login is successful, redirect to the home page
                 window.location.href = "/";
-            } else {
+            })
+            .catch((error) => {
                 // If the login fails, display an error message
                 alert("Invalid credentials");
-            }
-        } catch (error) {
-            // If there's an error, display an error message
-            console.error("Error logging in:", error);
-            alert("Error logging in. Please try again.");
-        }
+            });
     };
 
     return (
@@ -73,3 +386,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+By using User.cs, EFUserRepo.cs, UserController.cs files, please correct the LoginPage.JSX to logged in successfully by calling web api.
