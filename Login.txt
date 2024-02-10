@@ -1,124 +1,453 @@
-App.jsx:
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-import RegisterPage from "./RegisterPage";
-import LoginPage from "./LoginPage";
-import ForgotPasswordPage from "./ForgotPasswordPage";
-import Home from "./Home";
-import NavbarBefore from "./NavbarBefore";
-import NavbarAfterAdmin from "./NavbarAfterAdmin";
-import NavbarAfter from "./NavbarAfter";
+CatBed.JSX:
 
-const App = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false);
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
-    const handleLogout = () => {
-        setIsLoggedIn(false);
-        setIsAdmin(false);
-        sessionStorage.removeItem("isAdmin");
-        return <Navigate to="/" />;
-    };
+import Bed1 from '../Assets/Beds/Bed1.jpg';
+import Bed2 from '../Assets/Beds/Bed2.jpg';
+import Bed3 from '../Assets/Beds/Bed3.jpg';
+import Bed4 from '../Assets/Beds/Bed4.jpg';
+import Bed5 from '../Assets/Beds/Bed5.jpg';
+import Bed6 from '../Assets/Beds/Bed6.jpg';
+import Bed7 from '../Assets/Beds/Bed7.jpg';
 
-    return (
-        <Router>
-            {isLoggedIn && isAdmin ? (
-                <NavbarAfterAdmin userName="Admin" setLoggedIn={handleLogout} />
-            ) : isLoggedIn ? (
-                <NavbarAfter userName="User" setLoggedIn={handleLogout} />
-            ) : (
-                <NavbarBefore setLoggedIn={setIsLoggedIn} />
-            )}
+const ProductList = ({ products, addToCart, addToWishlist }) => {
+    const bedImages = [Bed1, Bed2, Bed3, Bed4, Bed5, Bed6, Bed7];
 
-            <Routes>
-                <Route path="/register" element={<RegisterPage />} />
-                <Route path="/login" element={<LoginPage setLoggedIn={setIsLoggedIn} setIsAdmin={setIsAdmin} />} />
-                <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-                <Route path="/" element={<Home />} />
-            </Routes>
-        </Router>
-    );
-};
-
-export default App;
-
-LoginPage.jsx:
-
-import React, { useState } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import { useNavigate } from "react-router-dom";
-
-const LoginPage = ({ setLoggedIn, setIsAdmin }) => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [message, setMessage] = useState("");
-    const navigate = useNavigate();
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        try {
-            const response = await fetch("http://localhost:5183/api/user/Login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ UserName: username, Password: password }),
-            });
-
-            if (!response.ok) {
-                throw new Error("Invalid credentials");
-            }
-
-            const data = await response.json();
-            setMessage(data.message);
-
-            sessionStorage.setItem("isAdmin", data.isAdmin);
-            setIsAdmin(data.isAdmin);
-            setLoggedIn(true);
-
-            navigate("/");
-        } catch (error) {
-            setMessage(error.message);
+    const shuffleArray = (array) => {
+        const shuffledArray = array.slice(); // Copy the array to avoid mutating the original
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
         }
+        return shuffledArray;
     };
 
+    const [shuffledBedImages, setShuffledBedImages] = useState([]);
+
+    useEffect(() => {
+        setShuffledBedImages(shuffleArray(bedImages));
+    }, [products]);
+
+    const renderProductImage = (productName) => {
+        const lowerProductName = productName.toLowerCase();
+        let image;
+
+        if (lowerProductName.includes('bed')) {
+            const imageIndex = Math.floor(Math.random() * shuffledBedImages.length);
+            image = shuffledBedImages[imageIndex];
+        }
+        return <img src={image} className="img-fluid rounded-start" alt={productName} />;
+    };
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-6 offset-md-3">
-                    <Form onSubmit={handleSubmit}>
-                        <FormGroup>
-                            <Label for="username">Username</Label>
-                            <Input
-                                type="text"
-                                name="username"
-                                id="username"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                required
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="password">Password</Label>
-                            <Input
-                                type="password"
-                                name="password"
-                                id="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </FormGroup>
-                        <Button color="primary" type="submit">
-                            Login
-                        </Button>
-                        {message && <p style={{ color: "green" }}>{message}</p>}
-                    </Form>
-                </div>
-            </div>
+        <div>
+            <br />
+            <h1 className="main-heading">Bed's</h1>
+            <div className="underline"></div> <br />
+            <ul style={{ listStyleType: 'none', padding: 0 }} className="products">
+                {products.map((product) => (
+                    <li key={product.productId}>
+                        <div className="card mb-12" style={{ width: '1050px' }}>
+                            <div className="row g-0">
+                                <div className="col-md-7">
+                                    {renderProductImage(product.productName)}
+                                </div>
+                                <div className="col-md-5">
+                                    <div className="card-body">
+                                        <h2 class="text-center" className="card-title">{product.productName}</h2>
+                                        <h3 class="text-center" className="card-text">{product.description}</h3>
+                                        <br />
+                                        <h4>Price: <b>Rs.{product.price.toFixed(2)} </b></h4>
+                                        <button class="button-style" onClick={() => addToCart(product.productId)}>Add to Cart</button>{' '}
+                                        <button class="button-style" onClick={() => addToWishlist(product.productId)}>Add to Wishlist</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 };
 
-export default LoginPage;
+function CatBed() {
+    const [products, setProducts] = useState([]);
+    const navigate = useNavigate();
+    const [cart, setCart] = useState({ userName: '', productId: 0, quantity: 0 });
+    const [wishlist, setWishlist] = useState({ wishListId: 0, userName: '', productId: 0 });
+
+    useEffect(() => {
+        fetch("https://localhost:7077/api/Product/ProductByCategory/2")
+            .then((response) => response.json())
+            .then((data) => {
+                setProducts(data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+
+    const redirectToLogin = () => {
+        navigate('/login');
+    };
+
+    const isUserLoggedIn = () => {
+        const user = localStorage.getItem('user');
+        return !!user;
+    };
+
+    const addToCart = async (product) => {
+        if (isUserLoggedIn()) {
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            const cartItem = {
+                userName: user.userName,
+                productId: product.productId,
+                quantity: 1,
+            };
+
+            try {
+                console.log('Adding to cart:', cartItem);
+                const existingCartItem = await fetch(`https://localhost:7077/api/Cart/CartByUserNameandProductId/${user.userName}/${product.productId}`);
+                console.log('Existing cart item:', existingCartItem);
+
+                if (existingCartItem.ok) {
+                    const existingCartData = await existingCartItem.json();
+                    cartItem.quantity += existingCartData.quantity;
+
+                    await fetch('https://localhost:7186/api/Cart/Update', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(cartItem),
+                    });
+                } else {
+                    await fetch('https://localhost:7077/api/Cart/Add', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(cartItem),
+                    });
+                }
+
+                alert('Product added to cart');
+                setCart({ userName: '', productId: 0, quantity: 0 });
+                console.log('Navigating to /Cart');
+                navigate('/Cart');
+            } catch (error) {
+                console.error('Error adding item to the cart:', error.message);
+            }
+        } else {
+            //redirectToLogin();
+            console.log('User not logged in. Cannot add to cart.');
+            return;
+        }
+    };
+
+    const addToWishlist = async (product) => {
+        if (isUserLoggedIn()) {
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            const wishlistItem = {
+                userName: user.userName,
+                productId: product.productId,
+            };
+
+            try {
+                console.log('Adding to wishlist:', wishlistItem);
+
+                await fetch('https://localhost:7077/api/Wishlist/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(wishlistItem),
+                });
+
+                console.log('Product added to wishlist');
+                setWishlist({ userName: '', productId: 0 });
+                console.log('Navigating to /WishList');
+                navigate('/WishList');
+
+                // You can display a success message to the user if needed
+            } catch (error) {
+                console.error('Error adding item to the wishlist:', error.message);
+                // You can display an error message to the user if needed
+            }
+        } else {
+            redirectToLogin();
+            console.log('User not logged in. Cannot add to wishlist.');
+            return;
+        }
+    };
+
+    return (
+        <div>
+            <ProductList products={products} addToCart={addToCart} addToWishlist={addToWishlist} />
+        </div>
+    );
+}
+
+export default CatBed;
+Like the above CatBed Page, Please Provide the Men's Shirts Page, The images will be accessed from Product table in database only.
+Product.cs:
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OnlineShopping.Models
+{
+    [Table("Product")]
+    public class Product
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ProductId { get; set; }
+
+        [Required]
+        [StringLength(30)] // Adjust the length as needed
+        public string ProductName { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Description { get; set; }
+
+        [Required]
+        [Column(TypeName = "decimal(18, 2)")] // Adjust precision and scale as needed
+        public decimal Price { get; set; }
+
+        [ForeignKey("Category")]
+        public int CategoryId { get; set; }
+
+        public virtual Category? Category { get; set; }
+
+        public byte[] ProductImage { get; set; } // New attribute for storing the image data
+
+        public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<WishList> WishLists { get; set; }
+
+        public Product()
+        {
+            Carts = new HashSet<Cart>();
+            WishLists = new HashSet<WishList>();
+        }
+    }
+}
+
+EFProductsRepo.cs:
+using Microsoft.EntityFrameworkCore;
+using OnlineShopping.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OnlineShopping.Repos
+{
+    public class EFProductRepo : IProductRepo
+    {
+        OnlineShoppingDbContext ctx = new OnlineShoppingDbContext();
+        public async Task AddProduct(Product product)
+        {
+            try
+            {
+                 ctx.Products.Add(product);
+                 await ctx.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task DeleteProduct(int productId)
+        {
+            try
+            {
+                Product product = await GetProductById(productId);
+                ctx.Products.Remove(product);
+                await ctx.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<List<Product>> GetAllProducts()
+        {
+            try
+            {
+                List<Product> products = await ctx.Products.ToListAsync();
+                return products;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<Product> GetProductById(int productId)
+        {
+            try
+            {
+                Product product = await (from p in ctx.Products where p.ProductId == productId select p).FirstAsync();
+                return product;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<Product> GetProductByName(string productName)
+        {
+            try
+            {
+                Product product = await (from p in ctx.Products where p.ProductName == productName select p).FirstAsync();
+                return product;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<List<Product>> GetProductsByCategory(int categoryId)
+        {
+            try
+            {
+                List<Product> products = await (from p in ctx.Products where p.CategoryId== categoryId select p).ToListAsync();
+                return products;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task UpdateProduct(int productId, Product product)
+        {
+            try
+            {
+                Product product1 = await GetProductById(productId);
+                product1.ProductName = product.ProductName;
+                product1.Description = product.Description;
+                product1.Price = product.Price;
+                product1.CategoryId = product.CategoryId;
+                product1.ProductImage = product.ProductImage;
+                await ctx.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+    }
+}
+
+ProductController.cs:
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using OnlineShopping.Models;
+using OnlineShopping.Repos;
+
+namespace webapi.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProductController : ControllerBase
+    {
+        IProductRepo productRepo;
+
+        public ProductController(IProductRepo repo)
+        {
+             productRepo = repo;
+        }
+
+        [HttpGet("AllProducts")]
+        public async Task<ActionResult> GetAllProducts()
+        {
+            List<Product> products = await productRepo.GetAllProducts();
+            return Ok(products);
+        }
+
+        [HttpGet("ProductById/{productId}")]
+        public async Task<ActionResult> GetProductById(int productId)
+        {
+            try
+            {
+                Product product = await productRepo.GetProductById(productId);
+                return Ok(product);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        [HttpGet("ProductByName/{productName}")]
+        public async Task<ActionResult> GetProductByName(string productName)
+        {
+            try
+            {
+                Product product = await productRepo.GetProductByName(productName);
+                return Ok(product);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        [HttpGet("ProductByCategory/{categoryId}")]
+        public async Task<ActionResult> GetProductsByCategory(int categoryId)
+        {
+            try
+            {
+                List<Product> product = await productRepo.GetProductsByCategory(categoryId);
+                return Ok(product);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> AddProduct(Product product)
+        {
+            await productRepo.AddProduct(product);
+            return Created($"api/product/{product.ProductId}", product);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateProduct(int productId, Product product)
+        {
+            await productRepo.UpdateProduct(productId, product);
+            return Ok(product);
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> DeleteProduct(int productId)
+        {
+            await productRepo.DeleteProduct(productId);
+            return Ok();
+        }
+    }
+}
